@@ -27,18 +27,18 @@ function App() {
     setFormData(initialFormData);
   }
 
-  const handleDelete = (idToDelete) => {
+  function handleDelete(idToDelete) {
     const updatedPosts = postsList.filter((post) => post.id !== idToDelete);
     setPostList(updatedPosts);
-  };
+  }
 
-  const handleEdit = (idToEdit) => {
+  function handleEdit(idToEdit) {
     const postToEdit = postsList.find((post) => post.id === idToEdit);
     if (postToEdit) {
       updateFormData(postToEdit.title);
       handleDelete(idToEdit);
     }
-  };
+  }
 
   function updateFormData(newValue) {
     const newFormData = { ...formData };

@@ -1,11 +1,11 @@
 const PostsList = ({ posts, onDelete, onEdit }) => {
-  const handleDelete = (id) => {
+  function handleDelete(id) {
     onDelete(id);
-  };
+  }
 
-  const handleEdit = (id) => {
+  function handleEdit(id) {
     onEdit(id);
-  };
+  }
 
   return (
     <div className="max-w-lg bg-white shadow-lg mx-auto p-7 rounded mt-6">
