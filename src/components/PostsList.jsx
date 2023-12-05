@@ -1,20 +1,32 @@
-const PostsList = ({ posts, onDelete }) => {
-  const handleDelete = (title) => {
-    onDelete(title);
+const PostsList = ({ posts, onDelete, onEdit }) => {
+  const handleDelete = (id) => {
+    onDelete(id);
+  };
+
+  const handleEdit = (id) => {
+    onEdit(id);
   };
 
   return (
     <div className="max-w-lg bg-white shadow-lg mx-auto p-7 rounded mt-6">
-      <h2 className="font-semibold rext-2x1 mb-4 block text-center">Posts</h2>
+      <h2 className="font-semibold text-2xl mb-4 block text-center">Posts</h2>
       <ul>
         {posts.map((post) => (
-          <li key={post.title} className="flex justify-between py-4 border-b">
+          <li key={post.id} className="flex justify-between py-4 border-b">
             <div>{post.title}</div>
-            <div
-              className="bg-red-500 hover:bg-red-300 px-2 font-bold rounded hover:cursor-pointer"
-              onClick={() => handleDelete(post.title)}
-            >
-              X
+            <div className="flex space-x-2">
+              <span
+                className="bg-yellow-500 hover:bg-yellow-300 px-2 font-bold rounded cursor-pointer ms-2"
+                onClick={() => handleEdit(post.id)}
+              >
+                Edit
+              </span>
+              <span
+                className="bg-red-500 hover:bg-red-300 px-2 font-bold rounded cursor-pointer ms-2"
+                onClick={() => handleDelete(post.id)}
+              >
+                X
+              </span>
             </div>
           </li>
         ))}
